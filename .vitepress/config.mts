@@ -2,21 +2,26 @@ import { defineConfig } from 'vitepress'
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
 import { resourcePack, javaApi } from './sidebar'
 import { Mappings, mapYarn, yarnToMojang } from '../utils/mapper'
+import { base, basePath } from '../utils/base'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+  head: [['link', { rel: 'icon', href: base('/favicon.ico') }]],
   title: 'Minecraft Cursor',
   description: 'Developer wiki for Minecraft Cursor',
-  base: '/minecraft-cursor-wiki',
+  base: basePath,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: '/logo.png',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Resource Pack', link: '/resource-pack/getting-started' },
-      { text: 'Java API', link: '/java-api/introduction' },
-      { component: 'MappingsSwitch', activeMatch: '/java-api/' }
+      {
+        text: 'Resource Pack',
+        link: '/resource-pack/getting-started',
+        activeMatch: '/resource-pack'
+      },
+      { text: 'Java API', link: '/java-api/introduction', activeMatch: '/java-api' },
+      { component: 'MappingsSwitch' }
     ],
     search: {
       provider: 'local',
@@ -41,9 +46,9 @@ export default defineConfig({
     },
     sidebar: [resourcePack, javaApi],
     outline: { level: [2, 3] },
-    socialLinks: [{ icon: 'github', link: 'https://github.com/fishstiz/minecraft-cursor' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/fishstiz/minecraft-cursor-wiki' }],
     footer: {
-      message: 'Released under the CC0-1.0 License.',
+      message: 'Released under the <a href="https://github.com/fishstiz/minecraft-cursor-wiki/blob/master/LICENSE" target="_blank">CC0-1.0 License.</a>',
       copyright: 'Copyright © 2025-present fishstiz'
     }
   },

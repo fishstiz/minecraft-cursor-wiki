@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import { onMounted } from 'vue';
 import { useRouter } from 'vitepress'
+import { base } from '../utils/base';
 
 const { go } = useRouter();
 
-go('/java-api/introduction')
+onMounted(() => {
+    go(base('/java-api/introduction'))
+})
 </script>

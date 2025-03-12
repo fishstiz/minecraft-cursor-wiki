@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import { onMounted } from 'vue';
 import { useRouter } from 'vitepress'
+import { base } from '../utils/base';
 
 const { go } = useRouter();
 
-go('/resource-pack/getting-started')
+onMounted(() => {
+    go(base('/resource-pack/getting-started'))
+})
 </script>

@@ -167,12 +167,12 @@ It defines two methods and accepts a type parameter `T` that extends `{{ Element
   </tbody>
 </table>
 
-```java-vue:line-numbers [MyElementCursorHandler.java]
-// The type passed will be the {{ Element }} to be registered. In this case, it is MyElement. 
-public class MyElementCursorHandler implements CursorHandler<MyElement> { 
+```java-vue:line-numbers [My{{ Element }}CursorHandler.java]
+// The type passed will be the {{ Element }} to be registered. In this case, it is My{{ Element }}. 
+public class My{{ Element }}CursorHandler implements CursorHandler<My{{ Element }}> { 
     @Override
-    public CursorType getCursorType(MyElement myElement, double mouseX, double mouseY) {
-        // This is the cursor type function to be associated with MyElement, invoked when MyElement.isMouseOver returns true
+    public CursorType getCursorType(My{{ Element }} my{{ Element }}, double mouseX, double mouseY) {
+        // This is the cursor type function to be associated with {{ MyElement }}, invoked when My{{ Element }}.isMouseOver returns true
         return CursorType.POINTER;
     }
 }
@@ -198,11 +198,11 @@ If the class is not publicly accessible, you can simply pass the `{{ Element }}`
 public class MerchantScreenButtonCursorHandler implements CursorHandler<{{ Element }}> {
     @Override
     public @NotNull TargetElement<{{ Element }}> getTargetElement() { 
-        return TargetElement.fromClassName("net.minecraft.class_492$class_493"); 
+        return TargetElement.fromClassName("{{ TradeOfferButton }}"); 
     }
 
     @Override
-    public CursorType getCursorType(Element element, double mouseX, double mouseY) {
+    public CursorType getCursorType({{ Element }} element, double mouseX, double mouseY) {
         return CursorTypeUtil.canShift() ? CursorType.SHIFT : CursorType.POINTER;
     }
 }
@@ -230,24 +230,24 @@ You can either replicate this behavior in your `{{ HandledScreen }}` subclass or
 > This problem can be avoided altogether by implementing the [`CursorProvider`](providing-the-cursor-from-the-element.md) interface directly to your `{{ HandledScreen }}` subclass. Recommended if **Minecraft Cursor** is a required dependency. 
 
 #### Example extending `AbstractHandledScreenCursorHandler`
-```java-vue
+```java-vue:line-numbers [My{{ HandledScreen }}CursorHandler.java]
 // AbstractHandledScreenCursorHandler accepts two parameters:
 // The first parameter is the {{ ScreenHandler }} of the {{ HandledScreen }} subclass you wish to be registered.
 // The second parameter is the {{ HandledScreen }} subclass itself.
-public class MyHandledScreenCursorHandler extends AbstractHandledScreenCursorHandler<My{{ ScreenHandler }}, My{{ HandledScreen }}> {
+public class My{{ HandledScreen }}CursorHandler extends AbstractHandledScreenCursorHandler<My{{ ScreenHandler }}, My{{ HandledScreen }}> {
     @Override
-    public CursorType getCursorType(My{{ HandledScreen }} {{ uncapitalize(HandledScreen) }}, double mouseX, double mouseY) {
+    public CursorType getCursorType(My{{ HandledScreen }} {{ handledScreen }}, double mouseX, double mouseY) {
         // There are two approaches:
 
-        // 1. Get the cursor type of the HandledScreen first.
-        CursorType cursorType = super.getCursorType(handledScreen, mouseX, mouseY);
-        // If the cursor type of the handled screen is not default then return the cursor type 
+        // 1. Get the cursor type of the {{ HandledScreen }} superclass first.
+        CursorType cursorType = super.getCursorType({{ handledScreen }}, mouseX, mouseY);
+        // If the cursor type of the {{ handledScreen }} is not default then return the cursor type 
         if (cursorType != CursorType.DEFAULT) return cursorType;
-        // You can also return later if you need the state of the cursor type from the HandledScreen.
+        // You can also return later if you need the state of the cursor type from the {{ HandledScreen }}.
 
-        // 2. Return the cursor type of the HandledScreen last after computing the cursor type
-        // of your HandledScreen and none of your conditions were met. 
-        return super.getCursorType(handledScreen, mouseX, mouseY);
+        // 2. Return the cursor type of the {{ HandledScreen }} last after computing the cursor type
+        // of your {{ HandledScreen }} subclass and none of your conditions were met. 
+        return super.getCursorType({{ handledScreen }}, mouseX, mouseY);
     }
 }
 ```
@@ -261,9 +261,12 @@ For more examples, you can take a look at the [source code](https://github.com/f
 <script setup lang="ts">
 import useMappings from '../composables/useMappings'
 
-const { Element, ParentElement, HandledScreen, ScreenHandler } = useMappings()
-
-const uncapitalize = (str: string) => {
-  return str.charAt(0).toLowerCase() + str.slice(1);
-}
+const { 
+    Element, 
+    ParentElement, 
+    HandledScreen, 
+    ScreenHandler, 
+    handledScreen, 
+    ["net.minecraft.class_492$class_493"]: TradeOfferButton 
+} = useMappings()
 </script>

@@ -7,6 +7,7 @@ export const yarnToMojang = {
   Element: 'GuiEventListener',
   ParentElement: 'ContainerEventListener',
   HandledScreen: 'AbstractContainerScreen',
+  handledScreen: 'abstractContainerScreen',
   ScreenHandler: 'AbstractContainerMenu',
   Identifier: 'ResourceLocation',
   ClickableWidget: 'AbstractWidget',
@@ -16,7 +17,9 @@ export const yarnToMojang = {
   TextFieldWidget: 'EditBox',
   SliderWidget: 'AbstractSliderButton',
   MessageScreen: 'GenericMessageScreen',
-  DownloadingTerrainScreen: 'ReceivingLevelScreen',  
+  DownloadingTerrainScreen: 'ReceivingLevelScreen',
+  'net.minecraft.class_492$class_493':
+    'net.minecraft.client.gui.screens.inventory.MerchantScreen$TradeOfferButton',
   close: 'onClose'
 }
 

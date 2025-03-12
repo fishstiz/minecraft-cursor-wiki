@@ -3,7 +3,7 @@ title: Directly Controlling the Cursor
 ---
 # Directly Controlling the Cursor
 
-The <code>CursorController</code> instance allows you to bypass the element-based system and the `{{ ParentElement }}` hierarchy and directly control the cursor.
+The <code>CursorController</code> instance allows you to bypass the element-based system and the `{{ ParentElement }}` hierarchy by allowing direct control the cursor.
 
 > [!WARNING]
 > **If Minecraft Cursor is an optional dependency**, make sure that the mod is loaded before using `CursorController` in your main code. 
