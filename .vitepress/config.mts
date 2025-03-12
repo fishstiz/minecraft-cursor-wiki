@@ -48,8 +48,8 @@ export default defineConfig({
     outline: { level: [2, 3] },
     socialLinks: [{ icon: 'github', link: 'https://github.com/fishstiz/minecraft-cursor-wiki' }],
     footer: {
-      message: 'Released under the <a href="https://github.com/fishstiz/minecraft-cursor-wiki/blob/master/LICENSE" target="_blank">CC0-1.0 License.</a>',
-      copyright: 'Copyright © 2025-present fishstiz'
+      message:
+        'Released under the <a href="https://github.com/fishstiz/minecraft-cursor-wiki/blob/master/LICENSE" target="_blank">CC0-1.0 License.</a>'
     }
   },
   markdown: {
