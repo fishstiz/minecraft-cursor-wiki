@@ -60,7 +60,7 @@ public class MyScreen extends Screen implements CursorProvider {
 
 ## Practical Examples
 
-For more examples, you can take a [look](https://github.com/fishstiz/minecraft-cursor/blob/release/1.21.4/common/src/main/java/io/github/fishstiz/minecraftcursor/gui/widget/SelectedCursorHotspotWidget.java#L120) at the [source](https://github.com/fishstiz/minecraft-cursor/blob/release/1.21.4/common/src/main/java/io/github/fishstiz/minecraftcursor/gui/widget/SelectedCursorTestWidget.java#L57) [code](https://github.com/fishstiz/minecraft-cursor/blob/release/1.21.4/common/src/main/java/io/github/fishstiz/minecraftcursor/gui/screen/MoreOptionsScreen.java#L108) of **Minecraft Cursor**.
+For more examples, you can take a [look](https://github.com/fishstiz/minecraft-cursor/blob/mc/1.21.4/common/src/main/java/io/github/fishstiz/minecraftcursor/gui/widget/SelectedCursorHotspotWidget.java#L120) at the [source](https://github.com/fishstiz/minecraft-cursor/blob/mc/1.21.4/common/src/main/java/io/github/fishstiz/minecraftcursor/gui/widget/SelectedCursorTestWidget.java#L57) [code](https://github.com/fishstiz/minecraft-cursor/blob/mc/1.21.4/common/src/main/java/io/github/fishstiz/minecraftcursor/gui/screen/MoreOptionsScreen.java#L108) of **Minecraft Cursor**.
 
 <script setup lang="ts">
 import useMappings from '../composables/useMappings';

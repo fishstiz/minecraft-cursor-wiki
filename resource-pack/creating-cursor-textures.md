@@ -164,4 +164,4 @@ It is in JSON format and can be opened with any text editor, preferably code edi
 
 ## Practical Examples
 
-For more examples, you can take a look at the built-in textures of **Minecraft Cursor** in the [source files](https://github.com/fishstiz/minecraft-cursor/tree/release/1.21.4/common/src/main/resources/assets/minecraft-cursor/textures/cursors).
+For more examples, you can take a look at the built-in textures of **Minecraft Cursor** in the [source files](https://github.com/fishstiz/minecraft-cursor/tree/mc/1.21.4/common/src/main/resources/assets/minecraft-cursor/textures/cursors).

@@ -254,7 +254,7 @@ public class My{{ HandledScreen }}CursorHandler extends AbstractHandledScreenCur
 
 ## Practical Examples
 
-For more examples, you can take a look at the [source code](https://github.com/fishstiz/minecraft-cursor/blob/release/1.21.4/common/src/main/java/io/github/fishstiz/minecraftcursor/impl/MinecraftCursorInitializerImpl.java#L18) of **Minecraft Cursor**.
+For more examples, you can take a look at the [source code](https://github.com/fishstiz/minecraft-cursor/blob/mc/1.21.4/common/src/main/java/io/github/fishstiz/minecraftcursor/impl/MinecraftCursorInitializerImpl.java#L18) of **Minecraft Cursor**.
 
 ---
 
