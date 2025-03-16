@@ -159,3 +159,30 @@
 .DocSearch {
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
+
+/**
+* Scrollbar
+*/
+
+* {
+  scrollbar-width: thin; /* Options: auto, thin, none */
+  scrollbar-color: var(--vp-button-alt-active-bg) transparent; /* thumb color and track color */
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vp-button-alt-active-bg); /* Subtle color */
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vp-button-brand-active-bg); /* Change color on hover */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
