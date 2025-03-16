@@ -67,5 +67,12 @@ export default defineConfig({
         }
       })
     ]
+  },
+  vue: {
+    template: {
+      compilerOptions: {
+        whitespace: 'preserve'
+      }
+    }
   }
 })

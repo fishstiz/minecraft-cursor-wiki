@@ -2,8 +2,12 @@
 import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
+import { LiteTree } from '@lite-tree/vue'
+import vitepressNprogress from 'vitepress-plugin-nprogress'
+import 'vitepress-plugin-nprogress/lib/css/index.css'
 import 'virtual:group-icons.css'
 import './style.css'
+import './lite-tree.css'
 
 import MappingsSwitch from '../../components/MappingsSwitch.vue'
 import useMappings from '../../composables/useMappings'
@@ -15,8 +19,12 @@ export default {
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
     })
   },
-  enhanceApp({ app, router, siteData }) {
+  enhanceApp(ctx) {
+    vitepressNprogress(ctx)
+    const { app, router } = ctx;
+
     app.component('MappingsSwitch', MappingsSwitch)
+    app.component('LiteTree', LiteTree)
 
     router.onBeforeRouteChange = (to: String) => {
       if (typeof window === 'undefined') return

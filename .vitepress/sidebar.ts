@@ -11,6 +11,10 @@ export const resourcePack: DefaultTheme.SidebarItem = {
       link: `/${resourcePackDir}/getting-started`,
       items: [
         {
+          text: 'File Structure',
+          link: `/${resourcePackDir}/getting-started#file-structure`
+        },
+        {
           text: 'All Cursors',
           link: `/${resourcePackDir}/getting-started#all-cursors`
         }

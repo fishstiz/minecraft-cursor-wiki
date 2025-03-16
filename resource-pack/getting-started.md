@@ -8,18 +8,21 @@ You may start with this resource pack template that contains the built-in textur
 [Minecraft-Cursor.v3.3.0.zip](https://github.com/user-attachments/files/18857805/Minecraft.Cursor.v3.3.0.zip)
 
 ## File Structure
-```xml
-assets/
-├── minecraft-cursor/   <!-- This is the namespace for Minecraft Cursor -->
-│   ├── atlases/
-│   │   └── cursors.json    <!-- (Optional) Settings for each Cursor --> 
-│   └── textures/
-│       └── cursors/
-│           ├── <cursor-key>.png        <!-- The Cursor Texture -->
-│           └── <cursor-key>.png.mcmeta <!-- (Optional) Animation Data -->
-├── pack.mcmeta <!-- https://minecraft.wiki/w/Pack.mcmeta -->
-└── pack.png    <!-- The Resource Pack Icon -->
-```
+**namespace**: `minecraft-cursor`
+<LiteTree>
+picture={{ icons.picture }}
+---
+assets
+    minecraft-cursor                                                          
+        atlases
+            cursors.json&nbsp;(optional)    // Custom Settings
+        textures
+            cursors
+              [picture]&lt;&#8203;cursor-key&#8203;&gt;.png                            // The Cursor Texture
+              &lt;&#8203;cursor-key&#8203;&gt;.png.mcmeta&nbsp;(optional)  // Animation Data
+pack.mcmeta
+pack.png                                                                  
+</LiteTree>
 
 ## All Cursors
 Each cursor has an associated **key**. This is used as the file name of the texture, animation data, and the key for custom settings.
@@ -179,7 +182,31 @@ Each cursor has an associated **key**. This is used as the file name of the text
 </table>
 
 <script setup lang="ts">
-import useMappings from '../composables/useMappings';
+import { onMounted, onUnmounted, ref } from 'vue'
+import useMappings from '../composables/useMappings'
+import icons from '../utils/icons'
 
 const { PressableWidget, TextFieldWidget, SliderWidget, MessageScreen, DownloadingTerrainScreen } = useMappings()
+
+let tree: Element;
+
+const updateNodes = () => {
+  tree?.querySelectorAll('.lite-tree-node > .title')?.forEach((tree) => {
+    tree.innerHTML = tree.innerHTML.replace(
+      /(&lt;.cursor-key.&gt;)(?!<)/g, 
+      '<span style="color: var(--vp-code-color);">$1</span>'
+    )
+  })
+}
+
+onMounted(() => {
+  tree = document.querySelector('.lite-tree')
+  tree.addEventListener('click', updateNodes)
+
+  updateNodes()
+})
+
+onUnmounted(() => {
+  if (tree) tree.removeEventListener('click', updateNodes)
+})
 </script>
