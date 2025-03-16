@@ -1,20 +1,33 @@
 <template>
-  <button @click="toggle">
+  <button @click="handleClick">
     <span class="label">Minecraft Cursor</span>
     <img :class="{ disabled: !minecraftCursor }" src="/assets/cursors/default.png" width="22" />
   </button>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { LocalStorage, store, fetch } from '../utils/localStorage'
+import { onMounted, ref } from 'vue'
 
 const minecraftCursor = ref(false)
 
-const toggle = () => {
+const updateClass = () => {
+  if (minecraftCursor.value) {
+    document.body.classList.add('minecraft-cursor')
+  } else {
+    document.body.classList.remove('minecraft-cursor')
+  }
+}
+
+onMounted(() => {
+  minecraftCursor.value = fetch(LocalStorage.CURSOR)
+  updateClass()
+})
+
+const handleClick = () => {
   minecraftCursor.value = !minecraftCursor.value
-  minecraftCursor.value
-    ? document.body.classList.add('minecraft-cursor')
-    : document.body.classList.remove('minecraft-cursor')
+  store(LocalStorage.CURSOR, minecraftCursor.value)
+  updateClass()
 }
 </script>
 

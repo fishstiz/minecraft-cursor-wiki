@@ -172,7 +172,7 @@ It defines two methods and accepts a type parameter `T` that extends `{{ Element
 public class My{{ Element }}CursorHandler implements CursorHandler<My{{ Element }}> { 
     @Override
     public CursorType getCursorType(My{{ Element }} my{{ Element }}, double mouseX, double mouseY) {
-        // This is the cursor type function to be associated with {{ MyElement }}, invoked when My{{ Element }}.isMouseOver returns true
+        // This is the cursor type function to be associated with My{{ Element }}, invoked when My{{ Element }}.isMouseOver returns true
         return CursorType.POINTER;
     }
 }

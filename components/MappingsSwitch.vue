@@ -8,16 +8,25 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { useRouter } from 'vitepress'
-import useMappings from '../composables/useMappings'
 import { Mappings } from '../utils/mapper'
+import { LocalStorage, store, fetch } from '../utils/localStorage'
+import useMappings from '../composables/useMappings'
 
 const { route } = useRouter()
 const { setMappings, getMappings } = useMappings()
 
-if (typeof window !== 'undefined') {
-  setMappings(new URLSearchParams(window.location.search).get('mappings'))
-}
+onMounted(() => {
+  const mappingsQuery = new URLSearchParams(window.location.search).get('mappings')
+  const mappingsStore = fetch(LocalStorage.MAPPINGS)
+
+  if (mappingsQuery && mappingsQuery !== mappingsStore) {
+    store(LocalStorage.MAPPINGS, mappingsQuery)
+  }
+
+  setMappings(mappingsQuery || mappingsStore)
+})
 
 const getTitle = () => {
   const toMappings = getMappings() === Mappings.YARN ? Mappings.MOJANG : Mappings.YARN
@@ -41,9 +50,11 @@ const handleClick = (): void => {
   const search = searchParams.toString()
   const hash = window.location.href.split('#')[1] || ''
   const path = hash ? `${route.path}?${search}#${hash}` : `${route.path}?${search}`
-
   history.replaceState(null, '', path)
-  setMappings(searchParams.get(key))
+
+  const mappings = searchParams.get(key)
+  setMappings(mappings)
+  store(LocalStorage.MAPPINGS, mappings)
 }
 </script>
 
