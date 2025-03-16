@@ -1,6 +1,7 @@
 <template>
   <ClientOnly>
     <button :title="getTitle()" @click="handleClick">
+      <span class="label">Mappings</span>
       <span class="mappings">{{ getMappings() }}</span>
     </button>
   </ClientOnly>
@@ -71,9 +72,32 @@ button {
   }
 }
 
+.label {
+  display: none;
+  line-height: 24px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--vp-c-text-2);
+}
+
 .mappings {
   text-transform: capitalize;
   font-family: inherit;
   font-weight: 600;
+}
+
+.VPNavScreenMenu button {
+  margin-top: 24px;
+  padding: 12px 14px 12px 16px;
+  border-radius: 8px;
+  background-color: var(--vp-c-bg-soft);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .label {
+    display: inline;
+  }
 }
 </style>
