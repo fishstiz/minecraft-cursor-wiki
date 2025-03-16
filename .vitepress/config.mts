@@ -21,7 +21,8 @@ export default defineConfig({
         activeMatch: '/resource-pack'
       },
       { text: 'Java API', link: '/java-api/introduction', activeMatch: '/java-api' },
-      { component: 'MappingsSwitch' }
+      { component: 'MappingsSwitch' },
+      { component: 'MinecraftCursorSwitch' }
     ],
     search: {
       provider: 'local',

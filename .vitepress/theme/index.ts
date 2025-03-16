@@ -1,5 +1,4 @@
 // https://vitepress.dev/guide/custom-theme
-import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { LiteTree } from '@lite-tree/vue'
@@ -8,22 +7,22 @@ import 'vitepress-plugin-nprogress/lib/css/index.css'
 import 'virtual:group-icons.css'
 import './style.css'
 import './lite-tree.css'
+import './cursors.css'
 
+import Layout from './Layout.vue'
 import MappingsSwitch from '../../components/MappingsSwitch.vue'
+import MinecraftCursorSwitch from '../../components/MinecraftCursorSwitch.vue'
 import useMappings from '../../composables/useMappings'
 
 export default {
   extends: DefaultTheme,
-  Layout: () => {
-    return h(DefaultTheme.Layout, null, {
-      // https://vitepress.dev/guide/extending-default-theme#layout-slots
-    })
-  },
+  Layout,
   enhanceApp(ctx) {
     vitepressNprogress(ctx)
     const { app, router } = ctx;
 
     app.component('MappingsSwitch', MappingsSwitch)
+    app.component('MinecraftCursorSwitch', MinecraftCursorSwitch)
     app.component('LiteTree', LiteTree)
 
     router.onBeforeRouteChange = (to: String) => {
