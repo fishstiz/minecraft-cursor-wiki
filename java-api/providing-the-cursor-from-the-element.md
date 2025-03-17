@@ -29,7 +29,7 @@ public class MyButton extends {{ ClickableWidget }} implements CursorProvider {
 ## Implement `CursorProvider` to your custom `Screen`
 `CursorProvider` can also be implemented in custom screens because `Screen` is an instance of `{{ Element }}`. 
 
-The method `CursorProvider.getCursorType(double mouseX, double mouseY)` will be invoked after each render call—assuming your custom `Screen` behaves like a typical `Screen` (it is still only invoked when `Element.isMouseOver(double mouseX, double mouseY)` returns `true`).
+The method `CursorProvider.getCursorType(double mouseX, double mouseY)` will be invoked after each render call—assuming your custom `Screen` behaves like a typical `Screen` (it is still only invoked when `{{ Element }}.isMouseOver(double mouseX, double mouseY)` returns `true`).
 
 This approach offers greater control over the cursor type at the screen level, allowing you to manage cursor behavior based on the state of multiple elements and/or other conditions. 
 

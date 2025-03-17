@@ -5,6 +5,7 @@ export enum Mappings {
 
 export const yarnToMojang = {
   Element: 'GuiEventListener',
+  element: 'guiEventListener',
   ParentElement: 'ContainerEventListener',
   HandledScreen: 'AbstractContainerScreen',
   handledScreen: 'abstractContainerScreen',

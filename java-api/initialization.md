@@ -177,12 +177,12 @@ public class My{{ Element }}CursorHandler implements CursorHandler<My{{ Element 
     }
 }
 ```
-```java:line-numbers {5} [MyMinecraftCursorInitializer.java]
+```java-vue:line-numbers {5} [MyMinecraftCursorInitializer.java]
 // Registering the CursorHandler
 public class MyMinecraftCursorInitializer implements MinecraftCursorInitializer {
     @Override
     public void init(CursorTypeRegistrar cursorRegistrar, ElementRegistrar elementRegistrar) {
-        elementRegistrar.register(new MyElementCursorHandler());
+        elementRegistrar.register(new My{{ Element }}CursorHandler());
     }
 }
 ```
@@ -202,7 +202,7 @@ public class MerchantScreenButtonCursorHandler implements CursorHandler<{{ Eleme
     }
 
     @Override
-    public CursorType getCursorType({{ Element }} element, double mouseX, double mouseY) {
+    public CursorType getCursorType({{ Element }} {{ element }}, double mouseX, double mouseY) {
         return CursorTypeUtil.canShift() ? CursorType.SHIFT : CursorType.POINTER;
     }
 }
@@ -262,7 +262,8 @@ For more examples, you can take a look at the [source code](https://github.com/f
 import useMappings from '../composables/useMappings'
 
 const { 
-    Element, 
+    Element,
+    element,
     ParentElement, 
     HandledScreen, 
     ScreenHandler, 
