@@ -4,12 +4,12 @@
   border: none !important;
 }
 
-.lite-tree * {
-  user-select: none;
-}
-
 body.minecraft-cursor .lite-tree-node {
   cursor: url('/assets/cursors/default24.png') 7 3, default !important;
+
+  .richlabel {
+    cursor: url('/assets/cursors/text24.png') 7 3, text !important;
+  }
 }
 
 .lite-tree-node {
@@ -19,14 +19,27 @@ body.minecraft-cursor .lite-tree-node {
   &:hover {
     background-color: var(--vp-c-default-soft) !important;
   }
+
+  .richlabel {
+    cursor: text !important;
+  }
 }
 
 body.minecraft-cursor .lite-tree-node:has(.opener) {
   cursor: url('/assets/cursors/pointer24.png') 7 3, pointer !important;
+  
+  .richlabel {
+    cursor: url('/assets/cursors/pointer24.png') 7 3, pointer !important;
+  }
 }
 
 .lite-tree-node:has(.opener) {
   cursor: pointer !important;
+  user-select: none;
+
+  .richlabel {
+    cursor: pointer !important;
+  }
 }
 
 .lite-tree-node .tag {

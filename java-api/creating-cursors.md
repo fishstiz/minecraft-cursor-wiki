@@ -15,13 +15,16 @@ The `CursorType` must then be registered from the [`MinecraftCursorInitializer`]
 ## The Cursor Type key
 Used to identify the cursor type. Following the [resource pack structure](../resource-pack/getting-started.md#file-structure), this is the:
 - **file name** of the cursor type:
-    ```
-    assets/
-    └── minecraft-cursor/
-        └── textures/
-            └── cursors/
-                └── <key>.png
-    ```
+<LiteTree>
+picture={{ icons.picture }}
+---
+assets
+	minecraft-cursor                                                          
+    	textures
+      		cursors
+          		{{ picture }}&lt;&#8203;key&#8203;&gt;.png
+</LiteTree>
+    
 - **key** for [custom settings](../resource-pack/custom-settings.md):
     ```json:line-numbers [cursors.json]
     {
@@ -75,7 +78,38 @@ public enum CustomCursorEnum implements CursorType {
 ---
 
 <script setup lang="ts">
+import { onMounted, onUnmounted } from 'vue';
 import useMappings from '../composables/useMappings';
+import icons from '../utils/icons' 
 
 const { Identifier } = useMappings();
+const picture = "[picture]"
+let tree: Element;
+
+const updateNodes = () => {
+  tree?.querySelectorAll('.lite-tree-node > .title')?.forEach((tree) => {
+    tree.innerHTML = tree.innerHTML.replace(
+      /(&lt;.key.&gt;)(?!<)/g, 
+      '<span style="color: var(--vp-code-color);">$1</span>'
+    )
+  })
+}
+
+onMounted(() => {
+  tree = document.querySelector('.lite-tree')
+  tree.addEventListener('click', updateNodes)
+
+  updateNodes()
+
+  document.querySelectorAll('.language-json')?.forEach((tree) => {
+    tree.innerHTML = tree.innerHTML.replace(
+      /(&lt;key&gt;)(?!<)/g, 
+      '<span style="color: var(--vp-code-color);">$1</span>'
+    )
+  })
+})
+
+onUnmounted(() => {
+  if (tree) tree.removeEventListener('click', updateNodes)
+})
 </script>

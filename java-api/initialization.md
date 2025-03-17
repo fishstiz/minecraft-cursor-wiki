@@ -33,13 +33,14 @@ Add the entrypoint in `fabric.mod.json` with the `minecraft-cursor` key.
 ```
 #### Neoforge & Forge 
 
-1. Inside `META-INF`, create a `services` directory. Then create a file named after the fully-qualified name of the `MinecraftCursorInitializer` interface.
-    ```
-    resources/
-    └── META-INF/
-        └── services/
-            └── io.github.fishstiz.minecraftcursor.api.MinecraftCursorInitializer
-    ```
+1. Inside `META-INF`, create a `services` directory. Then create a file named after the fully-qualified name of the `MinecraftCursorInitializer` interface.    
+    <LiteTree>
+    resources
+			META-INF                                                          
+				services
+					io.github.fishstiz.minecraftcursor.api.MinecraftCursorInitializer
+    </LiteTree>
+
 2. Inside the file, write the fully-qualified name of your `MinecraftCursorInitializer` implementation.
 
     ```:line-numbers [io.github.fishstiz.minecraftcursor.api.MinecraftCursorInitializer]

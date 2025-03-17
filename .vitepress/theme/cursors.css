@@ -8,10 +8,10 @@ body.minecraft-cursor {
 
 body.minecraft-cursor a,
 body.minecraft-cursor button:enabled {
-  cursor: url('/assets/cursors/pointer24.png') 7 3, pointer;
+  cursor: url('/assets/cursors/pointer24.png') 7 3, pointer !important;
 }
 
 body.minecraft-cursor input[type='search'],
 body.minecraft-cursor input[type='text'] {
-  cursor: url('/assets/cursors/text24.png') 8 11, text;
+  cursor: url('/assets/cursors/text24.png') 8 11, text !important;
 }
