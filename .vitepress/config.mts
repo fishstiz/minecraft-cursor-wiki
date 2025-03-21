@@ -50,7 +50,9 @@ export default defineConfig({
     socialLinks: [{ icon: 'github', link: 'https://github.com/fishstiz/minecraft-cursor-wiki' }],
     footer: {
       message:
-        'Released under the <a href="https://github.com/fishstiz/minecraft-cursor-wiki/blob/master/LICENSE" target="_blank">CC0-1.0 License.</a>'
+        'Released under the <a href="https://github.com/fishstiz/minecraft-cursor-wiki/blob/master/LICENSE" target="_blank">CC0-1.0 License.</a>',
+      copyright:
+        'NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.'
     }
   },
   markdown: {
