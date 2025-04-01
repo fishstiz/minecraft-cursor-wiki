@@ -6,6 +6,7 @@ import { base, basePath } from '../utils/base'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  cleanUrls: true,
   head: [['link', { rel: 'icon', href: base('/favicon.ico') }]],
   title: 'Minecraft Cursor',
   description: 'Developer wiki for Minecraft Cursor',
