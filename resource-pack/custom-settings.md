@@ -51,7 +51,7 @@ Refer to the [file structure](getting-started.md#file-structure) of the resource
         <tr>
             <td><code>scale</code>&nbsp;<sup>optional</sup></td>
             <td><code>float</code></td>
-            <td><code>0.50</code> - <code>3.00</code> (incrementing by <code>0.05</code>)</td>
+            <td><code>0.50</code> - <code>8.00</code> (incrementing by <code>0.05</code>)</td>
             <td><code>1.00</code></td>
             <td>Specifies the Scale of the cursor.</td>
         </tr>
