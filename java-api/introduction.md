@@ -18,25 +18,18 @@ The **Minecraft Cursor API** lets mod developers extend the functionality of **M
 
 Elements are simply classes or objects that implement Minecraft's native <code>{{ Element }}</code> interface, which allows the capturing and propagating of mouse events on GUIs and widgets/components from screens.
 
-## How Minecraft Cursor Works
-**Minecraft Cursor** uses an element registration system that maps <code>{{ Element }}</code> classes to a cursor type function which determines the cursor type when the mouse hovers over the <code>{{ Element }}</code>.
-
-Elements are discovered using the <code>{{ ParentElement }}.children()</code> method of the screen, and recursively traverses child <code>{{ ParentElement }}</code> instances with the same method to locate deeper nested elements. 
-
-When an instance of <code>{{ Element }}</code> is discovered, the `isMouseOver(mouseX, mouseY)` method of the element is invoked, and if `true`, executes the cursor type function of the <code>{{ Element }}</code> to determine the cursor type to apply.
-
 ## The <code>{{ ParentElement }}</code> hierarchy
 
-Based on the above information, in order for **Minecraft Cursor** to discover your elements, they must be an instance of <code>{{ Element }}</code>. 
+For elements to be detected, they must be an instance of <code>{{ Element }}</code>.
 
-The element must be the screen itself, or be accessible from the screen or from its parent using the <code>{{ ParentElement }}.children()</code> method. 
+It must be accessible recursively from the `Screen` using <code>{{ ParentElement }}#{{ hoveredElement }}(mouseX, mouseY)</code>. 
 
-Containers and nested containers must be an instance of <code>{{ ParentElement }}</code> and also be accessible from the screen using the <code>{{ ParentElement }}.children()</code> method. 
+In other words, the element must be a child of the `Screen`, or a child of a child (and so on), where each parent in the chain correctly implements <code>{{ ParentElement }}#{{ hoveredElement }}()</code>
 
-This accessibility must be maintained through the element hierarchy, starting from the current screen down to the deepest nested element.
+To check if the element is being detected, inspect mode can be toggled from the <b>More Cursor Options</b> screen.
 
 <script setup lang="ts">
 import useMappings from '../composables/useMappings'
 
-const { Element, ParentElement } = useMappings()
+const { Element, ParentElement, hoveredElement } = useMappings()
 </script>

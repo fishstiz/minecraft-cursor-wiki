@@ -44,16 +44,19 @@ Refer to the [file structure](getting-started.md#file-structure) of the resource
         <tr>
             <td><code>enabled</code>&nbsp;<sup>optional</sup></td>
             <td><code>boolean</code></td>
-            <td><code>true</code>, <code>false</code></td>
-            <td><code>true</code></td>
-            <td>Determines whether the cursor is enabled or not.</td>
+            <td><code>false</code></td>
+            <td></td>
+            <td>Determines whether the cursor should be disabled.</td>
         </tr>
         <tr>
             <td><code>scale</code>&nbsp;<sup>optional</sup></td>
             <td><code>float</code></td>
-            <td><code>0.50</code> - <code>8.00</code> (incrementing by <code>0.05</code>)</td>
+            <td><code>0</code> - <code>8.00</code> (incrementing by <code>0.05</code>)</td>
             <td><code>1.00</code></td>
-            <td>Specifies the Scale of the cursor.</td>
+            <td>
+              <p>Specifies the Scale of the cursor.</p>
+              <p>To enable auto-scale, set the value to <code>0</code> or a number less than <code>0.50</code>.</p>
+            </td>
         </tr>
         <tr>
             <td><code>xhot</code>&nbsp;<sup>optional</sup></td>

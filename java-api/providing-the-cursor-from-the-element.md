@@ -8,7 +8,7 @@ The <code>CursorProvider</code> interface provides a more declarative alternativ
  `{{ Element }}` classes that implement `CursorProvider` can directly declare which cursor type to be applied when it is being hovered by the mouse by overriding the <code>CursorProvider.getCursorType(double mouseX, double mouseY)</code> method.
 
 > [!IMPORTANT]
-> Instances of `{{ Element }}` must follow the [`{{ ParentElement }}` hierarchy](introduction#the-parentelement-hierarchy) to be discoverable by **Minecraft Cursor**.
+> `{{ Element }}`s  must be discoverable through the [`{{ ParentElement }}` hierarchy](introduction#the-parentelement-hierarchy).
 
 ## Implementing `CursorProvider`
 ```java-vue:line-numbers [MyButton.java]

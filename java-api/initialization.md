@@ -89,10 +89,7 @@ public class MyMinecraftCursorInitializer implements MinecraftCursorInitializer 
 
 ## Registering Elements
 > [!IMPORTANT]
-> Instances of `{{ Element }}` must follow the [`{{ ParentElement }}` hierarchy](introduction#the-parentelement-hierarchy) to be discoverable by **Minecraft Cursor**.
-
-> [!TIP]
-> If **Minecraft Cursor** is a required dependency, it is better to use the [`CursorProvider`](providing-the-cursor-from-the-element.md) interface approach. You'll be able to declare the cursor type directly from the element without having to register it.   
+> `{{ Element }}`s  must be discoverable through the [`{{ ParentElement }}` hierarchy](introduction#the-parentelement-hierarchy).
 
 Elements can be registered with a cursor type function using the method: `ElementRegistrar.register({{ Element }}, CursorTypeFunction)`. 
 
@@ -213,42 +210,6 @@ public class MyMinecraftCursorInitializer implements MinecraftCursorInitializer 
     @Override
     public void init(CursorTypeRegistrar cursorRegistrar, ElementRegistrar elementRegistrar) {
         cursorTypeRegistrar.register(new MerchantScreenButtonCursorHandler());
-    }
-}
-```
-
-### `{{ HandledScreen }}` Subclass
-`{{ HandledScreen }}` subclasses must be handled differently so that the built-in cursor handler for `{{ HandledScreen }}` does not get overriden.
-
-The `{{ HandledScreen }}` cursor handler is responsible for: 
-- Changing the cursor type to shift when holding shift above items in the inventory.
-- Changing the cursor type to pointer when hovering over items in the inventory.
-- Changing the cursor type to grabbing when an item is held in the inventory.
-
-You can either replicate this behavior in your `{{ HandledScreen }}` subclass or extend the `AbstractHandledScreenCursorHandler` provided by the **Minecraft Cursor API**.
-
-> [!TIP]
-> This problem can be avoided altogether by implementing the [`CursorProvider`](providing-the-cursor-from-the-element.md) interface directly to your `{{ HandledScreen }}` subclass. Recommended if **Minecraft Cursor** is a required dependency. 
-
-#### Example extending `AbstractHandledScreenCursorHandler`
-```java-vue:line-numbers [My{{ HandledScreen }}CursorHandler.java]
-// AbstractHandledScreenCursorHandler accepts two parameters:
-// The first parameter is the {{ ScreenHandler }} of the {{ HandledScreen }} subclass you wish to be registered.
-// The second parameter is the {{ HandledScreen }} subclass itself.
-public class My{{ HandledScreen }}CursorHandler extends AbstractHandledScreenCursorHandler<My{{ ScreenHandler }}, My{{ HandledScreen }}> {
-    @Override
-    public CursorType getCursorType(My{{ HandledScreen }} {{ handledScreen }}, double mouseX, double mouseY) {
-        // There are two approaches:
-
-        // 1. Get the cursor type of the {{ HandledScreen }} superclass first.
-        CursorType cursorType = super.getCursorType({{ handledScreen }}, mouseX, mouseY);
-        // If the cursor type of the {{ handledScreen }} is not default then return the cursor type 
-        if (cursorType != CursorType.DEFAULT) return cursorType;
-        // You can also return later if you need the state of the cursor type from the {{ HandledScreen }}.
-
-        // 2. Return the cursor type of the {{ HandledScreen }} last after computing the cursor type
-        // of your {{ HandledScreen }} subclass and none of your conditions were met. 
-        return super.getCursorType({{ handledScreen }}, mouseX, mouseY);
     }
 }
 ```

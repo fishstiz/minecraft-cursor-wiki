@@ -117,7 +117,6 @@ Each cursor has an associated **key**. This is used as the file name of the text
       <td>
         <span>In loading screens: </span>
         <ul>
-          <li><code>{{ MessageScreen }}</code></li>
           <li><code>{{ DownloadingTerrainScreen }}</code></li>
           <li><code>ProgressScreen</code></li>
           <li><code>LevelLoadingScreen</code></li>
