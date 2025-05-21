@@ -89,12 +89,14 @@ public class MyMinecraftCursorInitializer implements MinecraftCursorInitializer 
 
 ## Registering Elements
 > [!IMPORTANT]
-> `{{ Element }}`s  must be discoverable through the [`{{ ParentElement }}` hierarchy](introduction#the-parentelement-hierarchy).
+> Non-screen `{{ Element }}`s  must be discoverable through the [`{{ ParentElement }}` hierarchy](introduction#the-parentelement-hierarchy).
 
-Elements can be registered with a cursor type function using the method: `ElementRegistrar.register({{ Element }}, CursorTypeFunction)`. 
+Elements can be registered with a cursor type callback using the method: `ElementRegistrar.register({{ Element }}, CursorTypeFunction)`. 
 
-The `CursorTypeFunction` is executed when the mouse is hovering over the registered `{{ Element }}`, as determined by the method `{{ Element }}.isMouseOver(double, double)`. It receives three parameters: 
-- The `{{ Element }}` instance - type of the registered `{{ Element }}`
+The `CursorTypeFunction` is a called when the mouse hovers over the registered `{{ Element }}`, as determined by its parent's `{{ ParentElement }}.{{ hoveredElement }}(double double)` method. 
+
+It receives three parameters: 
+- The `{{ Element }}` instance (the registered `{{ Element }}`)
 - The Mouse X position - `double`
 - The Mouse Y position - `double`
 
@@ -216,7 +218,7 @@ public class MyMinecraftCursorInitializer implements MinecraftCursorInitializer 
 
 ## Practical Examples
 
-For more examples, you can take a look at the [source code](https://github.com/fishstiz/minecraft-cursor/blob/mc/1.21.4/common/src/main/java/io/github/fishstiz/minecraftcursor/impl/MinecraftCursorInitializerImpl.java#L18) of **Minecraft Cursor**.
+For more examples, you can take a look at the [source code](https://github.com/fishstiz/minecraft-cursor/blob/master/common/src/main/java/io/github/fishstiz/minecraftcursor/impl/MinecraftCursorInitializerImpl.java#L18) of **Minecraft Cursor**.
 
 ---
 
@@ -230,6 +232,7 @@ const {
     HandledScreen, 
     ScreenHandler, 
     handledScreen, 
+    hoveredElement,
     ["net.minecraft.class_492$class_493"]: TradeOfferButton 
 } = useMappings()
 </script>

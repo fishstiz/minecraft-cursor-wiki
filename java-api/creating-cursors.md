@@ -5,7 +5,7 @@ title: Creating Cursors
 
 Every cursor must have a unique **key** as its identifier. Choose a unique key for your custom cursor and follow the [resource pack](../resource-pack/getting-started.md) guide when creating the assets.
 
-Once you have prepared the cursor's assets, you can create a `CursorType` object using the static method: `CursorType.of(String key)`. The `CursorType` instance itself is inconsequential—only its **key** is used for lookup (similar to Minecraft's `{{ Identifier }}`).
+Once you have prepared the cursor's assets, you can create a `CursorType` object using the static method: `CursorType.of(String key)`. This serves as the identifier of the cursor.
 
 The `CursorType` must then be registered from the [`MinecraftCursorInitializer`](initialization.md#registering-cursors)
 
@@ -42,14 +42,10 @@ assets
       "minecraft-cursor.options.cursor-type.<key>": "Custom"
     }
     ```
-### Creating a `CursorType` object
-Using `CursorType.of(String key)`:
+### Creating `CursorType` objects
 ```java:line-numbers
 CursorType customCursor = CursorType.of("custom-cursor");
 ```
-
-### Creating static `CursorType` objects
-You should create final static variables or an enum for cursor types so they are easily reusable and maintainable.
 
 ```java:line-numbers [CustomCursor.java]
 // Create static cursor types

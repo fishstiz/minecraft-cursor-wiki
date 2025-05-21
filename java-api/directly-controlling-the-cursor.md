@@ -5,15 +5,13 @@ title: Directly Controlling the Cursor
 
 The <code>CursorController</code> instance allows you to bypass the element-based system and the `{{ ParentElement }}` hierarchy by allowing direct control of the cursor.
 
-> [!WARNING]
-> **If Minecraft Cursor is an optional dependency**, make sure that the mod is loaded before using `CursorController` in your main code. 
-> 
-> It will also only be instantiated after the **Minecraft Cursor** entrypoints have been initialized, and will throw an error if accessed too early.
-
 ## Getting the `CursorController` instance
 ```java
 CursorController cursorController = CursorController.getInstance();
 ```
+> [!WARNING]
+> Throws an error if accessed during entrypoint initialization.
+
 ## Methods
 
 The `CursorController` instance provides methods for changing the cursor's cursor type.
@@ -75,7 +73,7 @@ public class MyScreen extends Screen {
 ```
 
 ## Practical Examples
-Take a look at the **Minecraft Cursor** [source code](https://github.com/fishstiz/minecraft-cursor/blob/mc/1.21.4/common/src/main/java/io/github/fishstiz/minecraftcursor/gui/widget/CursorOptionsHandler.java#L72) for an example of using `overrideCursor`.
+Take a look at the **Minecraft Cursor** [source code](https://github.com/fishstiz/minecraft-cursor/blob/master/common/src/main/java/io/github/fishstiz/minecraftcursor/gui/widget/CursorOptionsHandler.java#L72) for an example of using `overrideCursor`.
 
 ---
 

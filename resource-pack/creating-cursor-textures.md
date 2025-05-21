@@ -4,7 +4,12 @@ title: Creating Cursor Textures
 # Creating Cursor Textures
 
 Cursor textures must meet the following requirements:
-- Size: **32x32** pixels (strict)
+- Supported sizes: 
+  - 8x8 
+  - 16x16
+  - 32x32
+  - 48x48
+  - 64x64
 - Format: `.png`
 
 The file name of the texture must match the [cursor key](getting-started.md#all-cursors) you want to retexture. 
@@ -19,17 +24,20 @@ To retexture the Default cursor (key: `default`), name the texture file `default
 
 ## Animated Textures
 
-1. To create animated textures, start with the standard 32x32 cursor texture. This will be the start of the sprite sheet.
-   - This also serves as the fallback cursor when the user disables the animation of the cursor or if the animation data fails to load.
+1. To create animated textures, choose one of the supported texture sizes and create a single cursor texture.
+   - This serves as the fallback cursor when the user disables the animation of the cursor or if the animation data fails to load.
 
+    **Example 32x32 cursor texture:**
     <br>
     <img src="./demo/texture.png" width="350" alt="demo-texture">
 
-2. Add frames by expanding the image downwards. Each frame is just another 32x32 cursor texture. 
-   - The entire image height must be divisible by 32 pixels, while the width must remain 32 pixels.
-   - Frames are identified by their index starting at 0, meaning the first frame is identified as frame `0`, the next frame as frame `1`, and so on.
-   - There is no set limit to how many frames you can add. 
+2. Add frames by stacking them vertically (top to bottom). Each frame must be a square cursor texture using one of the supported sizes. 
+   - You **cannot** have differently sized textures on each frame.
+   - The total image height must be evenly divisible by the chosen texture size.
+   - Frames are indexed from top to bottom, starting at `0`.
+   - There is no limit to the number of frames. 
 
+    **Example 32x32 animated cursor texture:**
     <br>
     <img src="./demo/animation-texture.png" width="350" alt="demo-animation-texture"> 
 
@@ -159,9 +167,10 @@ It is in JSON format and can be opened with any text editor, preferably code edi
 
 ### Limitations
 
-- To maximize mod compatibility, interpolation is not feasible as the cursors are not being custom rendered. **Minecraft Cursor** simply changes the look of the native cursor, with each frame essentially being its own cursor.
-- **Minecraft Cursor** relies on Minecraft's render loop which is based on the user's frame rate. If this is paused or slowed down, the animation will also pause or slow down.
+- To maximize mod compatibility, interpolation is not feasible as the cursors are not being custom rendered. **Minecraft Cursor** simply changes the look of the native cursor, with each frame essentially being its own cursor. 
+  
+  The animation may pause or slow down when the game does.
 
 ## Practical Examples
 
-For more examples, you can take a look at the built-in textures of **Minecraft Cursor** in the [source files](https://github.com/fishstiz/minecraft-cursor/tree/mc/1.21.4/common/src/main/resources/assets/minecraft-cursor/textures/cursors).
+For more examples, you can take a look at the built-in textures of **Minecraft Cursor** in the [source files](https://github.com/fishstiz/minecraft-cursor/tree/master/common/src/main/resources/assets/minecraft-cursor/textures/cursors).

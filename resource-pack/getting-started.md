@@ -49,7 +49,7 @@ Each cursor has an associated **key**. This is used as the file name of the text
           <li>The default cursor.</li>
           <li>If another cursor is disabled.</li>
         </ul>
-        <p>Remaps <code>GLFW_ARROW_CURSOR</code>.</p>
+        <p>(Fabric) Remaps <code>GLFW_ARROW_CURSOR</code>.</p>
       </td>
     </tr>
     <tr>
@@ -69,7 +69,7 @@ Each cursor has an associated **key**. This is used as the file name of the text
           <li>Advancement tabs.</li>
           <li>Crafter slots.</li>
         </ul>
-        <p>Remaps <code>GLFW_POINTING_HAND_CURSOR</code>.</p>
+        <p>(Fabric) Remaps <code>GLFW_POINTING_HAND_CURSOR</code>.</p>
       </td>
     </tr>
     <tr>
@@ -79,9 +79,10 @@ Each cursor has an associated **key**. This is used as the file name of the text
       <td>
         <ul>
           <li>Hovered over discoverable <code>{{ TextFieldWidget }}</code> elements.</li>
+          <li>Hovered over discoverable <code>{{ EditBoxWidget }}</code> elements.</li>
           <li>Hovered inside Book and Quill book.</li>
         </ul>
-        <p>Remaps <code>GLFW_IBEAM_CURSOR</code>.</p>
+        <p>(Fabric) Remaps <code>GLFW_IBEAM_CURSOR</code>.</p>
       </td>
     </tr>
     <tr>
@@ -93,7 +94,7 @@ Each cursor has an associated **key**. This is used as the file name of the text
           <li>Grabbing items in the inventory.</li>
           <li>Dragging the slider in discoverable <code>{{ SliderWidget }}</code> elements.</li>
         </ul>
-        <p>Remaps <code>GLFW_RESIZE_ALL_CURSOR</code>.</p>
+        <p>(Fabric) Remaps <code>GLFW_RESIZE_ALL_CURSOR</code>.</p>
       </td>
     </tr>
     <tr>
@@ -129,7 +130,7 @@ Each cursor has an associated **key**. This is used as the file name of the text
       <td><img src="/assets/cursors/crosshair.png" width="32" alt="crosshair"/></td>
       <td>
         <p>Only used for compatibility with other mods.</p>
-        <p>Remaps <code>GLFW_CROSSHAIR_CURSOR</code>.</p>
+        <p>(Fabric) Remaps <code>GLFW_CROSSHAIR_CURSOR</code>.</p>
       </td>
     </tr>
     <tr>
@@ -138,7 +139,7 @@ Each cursor has an associated **key**. This is used as the file name of the text
       <td><img src="/assets/cursors/resize_ew.png" width="32" alt="resize_ew"/></td>
       <td>
         <p>Only used for compatibility with other mods.</p>
-        <p>Remaps <code>GLFW_RESIZE_EW_CURSOR</code>.</p>
+        <p>(Fabric) Remaps <code>GLFW_RESIZE_EW_CURSOR</code>.</p>
       </td>
     </tr>
     <tr>
@@ -147,7 +148,7 @@ Each cursor has an associated **key**. This is used as the file name of the text
       <td><img src="/assets/cursors/resize_ns.png" width="32" alt="resize_ns"/></td>
       <td>
         <p>Only used for compatibility with other mods.</p>
-        <p>Remaps <code>GLFW_RESIZE_NS_CURSOR</code>.</p>
+        <p>(Fabric) Remaps <code>GLFW_RESIZE_NS_CURSOR</code>.</p>
       </td>
     </tr>
     <tr>
@@ -156,7 +157,7 @@ Each cursor has an associated **key**. This is used as the file name of the text
       <td><img src="/assets/cursors/resize_nwse.png" width="32" alt="resize_nwse"/></td>
       <td>
         <p>Only used for compatibility with other mods.</p>
-        <p>Remaps <code>GLFW_RESIZE_NWSE_CURSOR</code>.</p>
+        <p>(Fabric) Remaps <code>GLFW_RESIZE_NWSE_CURSOR</code>.</p>
       </td>
     </tr>
     <tr>
@@ -165,7 +166,7 @@ Each cursor has an associated **key**. This is used as the file name of the text
       <td><img src="/assets/cursors/resize_nesw.png" width="32" alt="resize_nesw"/></td>
       <td>
         <p>Only used for compatibility with other mods.</p>
-        <p>Remaps <code>GLFW_RESIZE_NESW_CURSOR</code>.</p>
+        <p>(Fabric) Remaps <code>GLFW_RESIZE_NESW_CURSOR</code>.</p>
       </td>
     </tr>
     <tr>
@@ -174,7 +175,7 @@ Each cursor has an associated **key**. This is used as the file name of the text
       <td><img src="/assets/cursors/not_allowed.png" width="32" alt="not_allowed"/></td>
       <td>
         <p>Only used for compatibility with other mods.</p>
-        <p>Remaps <code>GLFW_NOT_ALLOWED_CURSOR</code>.</p>
+        <p>(Fabric) Remaps <code>GLFW_NOT_ALLOWED_CURSOR</code>.</p>
       </td>
     </tr>
   </tbody>
@@ -185,7 +186,7 @@ import { onMounted, onUnmounted, ref } from 'vue'
 import useMappings from '../composables/useMappings'
 import icons from '../utils/icons'
 
-const { PressableWidget, TextFieldWidget, SliderWidget, MessageScreen, DownloadingTerrainScreen } = useMappings()
+const { PressableWidget, TextFieldWidget, SliderWidget, EditBoxWidget, DownloadingTerrainScreen } = useMappings()
 
 let tree: Element;
 

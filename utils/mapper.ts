@@ -17,6 +17,7 @@ export const yarnToMojang = {
   drawContext: 'guiGraphics',
   PressableWidget: 'AbstractButton',
   TextFieldWidget: 'EditBox',
+  EditBoxWidget: 'MultiLineEditBox',
   SliderWidget: 'AbstractSliderButton',
   MessageScreen: 'GenericMessageScreen',
   DownloadingTerrainScreen: 'ReceivingLevelScreen',
