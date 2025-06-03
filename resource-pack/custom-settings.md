@@ -9,7 +9,7 @@ Custom settings can be defined in <code>assets/minecraft-cursor/atlases/cursors.
 Refer to the [file structure](getting-started.md#file-structure) of the resource pack.
 
 > [!NOTE]
-> Custom settings are layered per resource pack. Not all keys have to be present if no custom configurations are needed.
+> Custom settings are layered per resource pack.
 
 <table>
   <thead>

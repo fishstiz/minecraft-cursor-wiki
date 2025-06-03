@@ -125,6 +125,15 @@ Each cursor has an associated **key**. This is used as the file name of the text
       </td>
     </tr>
     <tr>
+      <td>Not Allowed</td>
+      <td><code>not_allowed</code></td>
+      <td><img src="/assets/cursors/not_allowed.png" width="32" alt="not_allowed"/></td>
+      <td>
+        <p>Hovered over disabled <code>{{ PressableWidget }}</code> and <code>{{ SliderWidget }}</code> widgets.</p>
+        <p>(Fabric) Remaps <code>GLFW_NOT_ALLOWED_CURSOR</code>.</p>
+      </td>
+    </tr>
+    <tr>
       <td>Crosshair</td>
       <td><code>crosshair</code></td>
       <td><img src="/assets/cursors/crosshair.png" width="32" alt="crosshair"/></td>
@@ -167,15 +176,6 @@ Each cursor has an associated **key**. This is used as the file name of the text
       <td>
         <p>Only used for compatibility with other mods.</p>
         <p>(Fabric) Remaps <code>GLFW_RESIZE_NESW_CURSOR</code>.</p>
-      </td>
-    </tr>
-    <tr>
-      <td>Not Allowed</td>
-      <td><code>not_allowed</code></td>
-      <td><img src="/assets/cursors/not_allowed.png" width="32" alt="not_allowed"/></td>
-      <td>
-        <p>Only used for compatibility with other mods.</p>
-        <p>(Fabric) Remaps <code>GLFW_NOT_ALLOWED_CURSOR</code>.</p>
       </td>
     </tr>
   </tbody>

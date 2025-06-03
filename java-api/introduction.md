@@ -22,14 +22,19 @@ Elements are simply classes or objects that implement Minecraft's native <code>{
 
 For elements to be detected, they must be an instance of <code>{{ Element }}</code>.
 
-It must be accessible recursively from the `Screen` using <code>{{ ParentElement }}#{{ hoveredElement }}(mouseX, mouseY)</code>. 
+It must be accessible recursively from the `Screen` via <code>{{ ParentElement }}#{{ children }}()</code>. 
 
-In other words, the element must be a child of the `Screen`, or a child of a child (and so on), where each parent in the chain correctly implements <code>{{ ParentElement }}#{{ hoveredElement }}()</code>
+Each parent in the hierarchy must correctly expose children, forming a chain from the `Screen` to the target element.
 
-To check if the element is being detected, inspect mode can be toggled from the <b>More Cursor Options</b> screen.
+If the element is an instance of <code>{{ ClickableWidget }}</code>, <code>{{ ClickableWidget }}#isHovered()</code> and
+<code>{{ ClickableWidget }}#visible</code> must be true.
+
+Otherwise, <code>{{ Element }}#isMouseOver(double, double)</code> must return true.
+
+To check if the element is being detected, **Inspect element** can be toggled from the configuration screen under the **Debug** section.
 
 <script setup lang="ts">
 import useMappings from '../composables/useMappings'
 
-const { Element, ParentElement, hoveredElement } = useMappings()
+const { Element, ParentElement, children, ClickableWidget } = useMappings()
 </script>

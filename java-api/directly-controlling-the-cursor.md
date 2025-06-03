@@ -73,7 +73,7 @@ public class MyScreen extends Screen {
 ```
 
 ## Practical Examples
-Take a look at the **Minecraft Cursor** [source code](https://github.com/fishstiz/minecraft-cursor/blob/master/common/src/main/java/io/github/fishstiz/minecraftcursor/gui/widget/CursorOptionsHandler.java#L72) for an example of using `overrideCursor`.
+Take a look at the **Minecraft Cursor** [source code](https://github.com/fishstiz/minecraft-cursor/blob/master/common/src/main/java/io/github/fishstiz/minecraftcursor/gui/screen/panel/CursorOptionsPanel.java#L313) for an example of using `overrideCursor`.
 
 ---
 

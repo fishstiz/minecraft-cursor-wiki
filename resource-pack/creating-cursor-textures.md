@@ -3,20 +3,21 @@ title: Creating Cursor Textures
 ---
 # Creating Cursor Textures
 
-Cursor textures must meet the following requirements:
-- Supported sizes: 
-  - 8x8 
-  - 16x16
-  - 32x32
-  - 48x48
-  - 64x64
-- Format: `.png`
+**Requirements**:
+- Minimum Size: **8x8**
+- Maximum Size: **128x128**
+- Must be divisible by: **8**
+- Must be square
+- File name must correspond to a [cursor key](getting-started.md#all-cursors).
+- Format: **.png**
 
-The file name of the texture must match the [cursor key](getting-started.md#all-cursors) you want to retexture. 
+**Recommendations**:
+- Use **2<sup>n</sup>** size when applying a custom scale.
+- Use **16x16** with **1:1** pixel density for optimal results with auto scale (may vary across platforms).
 
 ## Example
 
-To retexture the Default cursor (key: `default`), name the texture file `default.png`.
+Creating a **32x32** texture for the **Default** cursor which has the `default` key:
 
 <img src="./demo/filename.png" width="512" alt="demo-filename">
 <br><br>
@@ -24,24 +25,22 @@ To retexture the Default cursor (key: `default`), name the texture file `default
 
 ## Animated Textures
 
-1. To create animated textures, choose one of the supported texture sizes and create a single cursor texture.
-   - This serves as the fallback cursor when the user disables the animation of the cursor or if the animation data fails to load.
+1. Choose a single frame size (must be within spec) and create the first sprite used as fallback.
 
-    **Example 32x32 cursor texture:**
+    In this example, I chose to animate the **Default** cursor with a size of **32x32**:
     <br>
     <img src="./demo/texture.png" width="350" alt="demo-texture">
 
-2. Add frames by stacking them vertically (top to bottom). Each frame must be a square cursor texture using one of the supported sizes. 
-   - You **cannot** have differently sized textures on each frame.
-   - The total image height must be evenly divisible by the chosen texture size.
+2. Add frames by stacking them vertically (top to bottom).
+   - All frames must be the same size.
+   - The total image height must be divisible by the chosen frame size.
    - Frames are indexed from top to bottom, starting at `0`.
-   - There is no limit to the number of frames. 
 
-    **Example 32x32 animated cursor texture:**
+    Here, a second frame was added, making the total height **64** pixels:
     <br>
     <img src="./demo/animation-texture.png" width="350" alt="demo-animation-texture"> 
 
-3. Register the texture as an animated texture by adding a `<key>.png.mcmeta` file. Here is where you can also add [animation data](#animation-data).
+3. Register the texture as animated by creating a `<key>.png.mcmeta` file within the same directory. This is where you can specify [animation data](#animation-data).
 
    <img src="./demo/animation-filename.png" width="350" alt="demo-animation-filename"> 
    <br><br><strong><code>default.png.mcmeta</code></strong>:
@@ -122,12 +121,12 @@ It is in JSON format and can be opened with any text editor, preferably code edi
       <td>
         <p>Determines the order and/or time of the frames to be played.</p>
         <ul>
-          <li>If this is <code>null</code>, then the frames will be auto-generated based on the sprite sheet and the given <code>frametime</code>.</li>
+          <li>If this is not specified, frames will be auto-generated from top to bottom with the given <code>frametime</code>.</li>
           <li>Array elements can either be an <strong><code>int</code></strong> or a <strong><code>Frame</code></strong> object.</li>
         </ul>
         <table>
           <thead><tr><th><code>int</code></th></tr></thead>
-          <tbody><tr><td>Specifies the index of the frame on the sprite sheet starting at <code>0</code></td></tr></tbody>
+          <tbody><tr><td>Specifies the index of the frame according to the sprite sheet.</td></tr></tbody>
         </table>
         <table>
           <thead>
@@ -142,7 +141,7 @@ It is in JSON format and can be opened with any text editor, preferably code edi
             <tr>
               <td><code>index</code>&nbsp;<sup>required</sup></td>
               <td><code>int</code></td>
-              <td>The index of the frame on the sprite sheet starting at <code>0</code>.</td>
+              <td>Specifies the index of the frame according to the sprite sheet.</td>
             </tr>
             <tr>
               <td><code>time</code>&nbsp;<sup>required</sup></td>
@@ -156,15 +155,37 @@ It is in JSON format and can be opened with any text editor, preferably code edi
   </tbody>
 </table>
 
-**Example usage**:
+#### Examples
 ```json:line-numbers [&lt;key&gt;.png.mcmeta]
 {
   "mode": "loop",
-  "frametime": 1,
-  "frames": [{ "index": 0, "time": 2 }, 1, 2, 3, 2]
+  "frametime": 4,
+  "frames": [
+    3,
+    { "index": 1, "time": 6 },
+    0,
+    5,
+    { "index": 2, "time": 3 }
+  ]
 }
 ```
+- Animation loops continuously.
+- Default frame duration is 4 ticks.
+- Frames played in this order: 3 → 1 → 0 → 5 → 2.
+- Frame 1 plays for 6 ticks (overridden).
+- Frame 2 plays for 3 ticks (overridden).
+- All other frames play for 4 ticks (default).
 
+--- 
+
+```json:line-numbers [&lt;key&gt;.png.mcmeta]
+{
+  "frametime": 2
+}
+```
+- Frames are played in order from top to bottom.
+- Each frame lasts two ticks.
+- Animation loops by default.
 ### Limitations
 
 - To maximize mod compatibility, interpolation is not feasible as the cursors are not being custom rendered. **Minecraft Cursor** simply changes the look of the native cursor, with each frame essentially being its own cursor. 

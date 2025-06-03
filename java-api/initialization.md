@@ -93,10 +93,10 @@ public class MyMinecraftCursorInitializer implements MinecraftCursorInitializer 
 
 Elements can be registered with a cursor type callback using the method: `ElementRegistrar.register({{ Element }}, CursorTypeFunction)`. 
 
-The `CursorTypeFunction` is a called when the mouse hovers over the registered `{{ Element }}`, as determined by its parent's `{{ ParentElement }}.{{ hoveredElement }}(double double)` method. 
+The `CursorTypeFunction` is a called when the element is detected.
 
-It receives three parameters: 
-- The `{{ Element }}` instance (the registered `{{ Element }}`)
+It receives three values: 
+- The `{{ Element }}` instance
 - The Mouse X position - `double`
 - The Mouse Y position - `double`
 
@@ -172,7 +172,7 @@ It defines two methods and accepts a type parameter `T` that extends `{{ Element
 public class My{{ Element }}CursorHandler implements CursorHandler<My{{ Element }}> { 
     @Override
     public CursorType getCursorType(My{{ Element }} my{{ Element }}, double mouseX, double mouseY) {
-        // This is the cursor type function to be associated with My{{ Element }}, invoked when My{{ Element }}.isMouseOver returns true
+        // This is the cursor type function to be registered with My{{ Element }}
         return CursorType.POINTER;
     }
 }

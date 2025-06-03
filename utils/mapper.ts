@@ -8,6 +8,7 @@ export const yarnToMojang = {
   element: 'guiEventListener',
   ParentElement: 'ContainerEventHandler',
   hoveredElement: 'getChildAt',
+  children: 'children',
   HandledScreen: 'AbstractContainerScreen',
   handledScreen: 'abstractContainerScreen',
   ScreenHandler: 'AbstractContainerMenu',

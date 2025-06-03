@@ -8,7 +8,7 @@ title: Providing the Cursor from the Element
 
 The <code>CursorProvider</code> interface provides a more declarative alternative to the element registration system. 
 
- `{{ Element }}`s that implement `CursorProvider` can directly declare which cursor type to be applied when it is detected and hovered by overriding the <code>CursorProvider.getCursorType(double mouseX, double mouseY)</code> method.
+ `{{ Element }}`s can implement <code>CursorProvider#getCursorType(double, double)</code> to return the `CursorType` to be applied when it is detected.
 
 ## Implementing `CursorProvider`
 ```java-vue:line-numbers [MyButton.java]
@@ -55,7 +55,7 @@ public class MyScreen extends Screen implements CursorProvider {
 
 ## Practical Examples
 
-For more examples, you can take a look at the [source](https://github.com/fishstiz/minecraft-cursor/blob/master/common/src/main/java/io/github/fishstiz/minecraftcursor/gui/widget/SelectedCursorHotspotWidget.java#L127) [code](https://github.com/fishstiz/minecraft-cursor/blob/master/common/src/main/java/io/github/fishstiz/minecraftcursor/gui/widget/SelectedCursorTestWidget.java#L61) of **Minecraft Cursor**.
+For more examples, you can take a look at the [source](https://github.com/fishstiz/minecraft-cursor/blob/master/common/src/main/java/io/github/fishstiz/minecraftcursor/gui/widget/CursorHotspotWidget.java#L146) [code](https://github.com/fishstiz/minecraft-cursor/blob/master/common/src/main/java/io/github/fishstiz/minecraftcursor/gui/widget/CursorPreviewWidget.java#L106) of **Minecraft Cursor**.
 
 <script setup lang="ts">
 import useMappings from '../composables/useMappings';
