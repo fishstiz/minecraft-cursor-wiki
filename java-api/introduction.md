@@ -26,8 +26,9 @@ It must be accessible recursively from the `Screen` via <code>{{ ParentElement }
 
 Each parent in the hierarchy must correctly expose children, forming a chain from the `Screen` to the target element.
 
-If the element is an instance of <code>{{ ClickableWidget }}</code>, <code>{{ ClickableWidget }}#isHovered()</code> and
-<code>{{ ClickableWidget }}#visible</code> must be true.
+If the element is an instance of <code>{{ ClickableWidget }}</code>, then <code>{{ ClickableWidget }}#visible</code> must be true, and either:
+- <code>{{ ClickableWidget }}#isHovered()</code> is true, or
+- <code>{{ ClickableWidget }}#isMouseOver(double, double)</code> returns true.
 
 Otherwise, <code>{{ Element }}#isMouseOver(double, double)</code> must return true.
 
