@@ -167,9 +167,8 @@
   scrollbar-color: var(--vp-button-alt-active-bg) transparent;
 }
 
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+aside {
+  scrollbar-width: thin;
 }
 
 ::-webkit-scrollbar-thumb {
