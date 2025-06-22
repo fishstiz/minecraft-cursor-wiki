@@ -12,7 +12,7 @@ title: Creating Cursor Textures
 - Format: **.png**
 
 **Recommendations**:
-- Use **2<sup>n</sup>** size when applying a custom scale.
+- Use **2<sup>n</sup>** size when applying 1x scale or some other custom scale.
 - Use **16x16** with **1:1** pixel density for optimal results with auto scale (may vary across platforms).
 
 ## Example

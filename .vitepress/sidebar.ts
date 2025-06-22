@@ -2,6 +2,7 @@ import { DefaultTheme } from 'vitepress'
 
 const resourcePackDir = 'resource-pack'
 const javaApiDir = 'java-api'
+const jsonApiDir = 'json-api'
 
 export const resourcePack: DefaultTheme.SidebarItem = {
   text: 'Resource Pack',
@@ -32,6 +33,11 @@ export const resourcePack: DefaultTheme.SidebarItem = {
     },
     { text: 'Custom Settings', link: `/${resourcePackDir}/custom-settings` }
   ]
+}
+
+export const jsonApi: DefaultTheme.SidebarItem = {
+  text: 'JSON API',
+  items: [{ text: 'Blacklisting Elements', link: `${jsonApiDir}#blacklisting-elements` }]
 }
 
 export const javaApi: DefaultTheme.SidebarItem = {

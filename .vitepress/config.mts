@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
-import { resourcePack, javaApi } from './sidebar'
+import { resourcePack, javaApi, jsonApi } from './sidebar'
 import { Mappings, mapYarn, yarnToMojang } from '../utils/mapper'
 import { base, basePath } from '../utils/base'
 
@@ -46,7 +46,7 @@ export default defineConfig({
         }
       }
     },
-    sidebar: [resourcePack, javaApi],
+    sidebar: [resourcePack, jsonApi, javaApi],
     outline: { level: [2, 3] },
     socialLinks: [{ icon: 'github', link: 'https://github.com/fishstiz/minecraft-cursor-wiki' }],
     footer: {
