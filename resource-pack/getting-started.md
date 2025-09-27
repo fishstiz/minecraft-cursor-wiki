@@ -2,7 +2,10 @@
 title: Getting Started with Resource Packs
 ---
 # Getting Started with Resource Packs
-  
+
+> [!IMPORTANT]
+> This wiki was last updated for v3. Click [here](https://fishstiz.github.io/cursors_extended-wiki/resource-pack/getting-started) for v4 (1.21.9 and above).
+
 You may optionally start with this resource pack template that contains the built-in textures of **Minecraft Cursor**:
 
 [Minecraft-Cursor_v3.9.2.zip](https://github.com/user-attachments/files/20843725/Minecraft-Cursor_v3.9.2.zip)
