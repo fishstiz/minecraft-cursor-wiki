@@ -8,7 +8,7 @@ title: Getting Started with Resource Packs
 
 You may optionally start with this resource pack template that contains the built-in textures of **Minecraft Cursor**:
 
-[Minecraft-Cursor_v3.9.2.zip](https://github.com/user-attachments/files/20843725/Minecraft-Cursor_v3.9.2.zip)
+[Minecraft-Cursor_v3.9.2.zip](https://raw.githubusercontent.com/fishstiz/minecraft-cursor-wiki/master/resources/Minecraft-Cursor_v3.9.2.zip)
 
 ## File Structure
 **namespace**: `minecraft-cursor`
