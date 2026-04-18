@@ -31,7 +31,11 @@ export const resourcePack: DefaultTheme.SidebarItem = {
         }
       ]
     },
-    { text: 'Custom Settings', link: `/${resourcePackDir}/custom-settings` }
+    { text: 'Custom Settings', link: `/${resourcePackDir}/custom-settings` },
+    {
+      text: 'Showcase',
+      link: 'https://fishstiz.github.io/cursors_extended-wiki/resource-pack/showcase'
+    }
   ]
 }
 
