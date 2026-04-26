@@ -33,6 +33,10 @@ export const resourcePack: DefaultTheme.SidebarItem = {
     },
     { text: 'Custom Settings', link: `/${resourcePackDir}/custom-settings` },
     {
+      text: 'Downgrade from V4',
+      link: 'https://fishstiz.github.io/cursors_extended-wiki/tools#v4-downgrader'
+    },
+    {
       text: 'Showcase',
       link: 'https://fishstiz.github.io/cursors_extended-wiki/resource-pack/showcase'
     }

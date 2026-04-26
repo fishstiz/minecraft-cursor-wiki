@@ -22,6 +22,7 @@ export default defineConfig({
         activeMatch: '/resource-pack'
       },
       { text: 'Java API', link: '/java-api/introduction', activeMatch: '/java-api' },
+      { text: 'Cursors Extended', link: 'https://fishstiz.github.io/cursors_extended-wiki/' },
       { component: 'MappingsSwitch' },
       { component: 'MinecraftCursorSwitch' }
     ],
