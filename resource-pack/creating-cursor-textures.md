@@ -3,6 +3,9 @@ title: Creating Cursor Textures
 ---
 # Creating Cursor Textures
 
+> [!IMPORTANT]
+> Resource packs created before 1.21.9 are **NOT** compatible with versions including and after 1.21.9 and above. Click [here](https://fishstiz.github.io/cursors_extended-wiki/resource-pack/getting-started) for 1.21.9 and above. You may use the [converter](#https://fishstiz.github.io/cursors_extended-wiki/tools/#v3-converter) to upgrade resource packs.
+
 **Requirements**:
 - Minimum Size: **8x8**
 - Maximum Size: **128x128**
